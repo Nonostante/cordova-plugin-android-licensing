@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-android-licensing"
+    version="1.0.0">
+
+    <name>CordovaAndroidLicensing</name>
+    <description>"Android cordova plugin for google play licensing check</description>
+    <license>Apache 2.0</license>
+    <author>Nonostante Games</author> 
+    <keywords>cordova,phonegap,android,googleplay,LVL,license</keywords>
+
+    <engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/cordovaAndroidLicensing.js" name="CordovaAndroidLicensing">
+        <clobbers target="window.plugins.licensing" />
+    </js-module>
+        
+    <platform name="android">
+		<preference name="PUBLIC_KEY" />
+    
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CordovaAndroidLicensing">
+                <param name="android-package" value="io.nonostante.games.cordova.CordovaAndroidLicensing"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        </config-file>
+
+        <config-file target="res/values/strings.xml" parent="/resources">
+            <string name="lpk">$PUBLIC_KEY</string>
+        </config-file>        
+
+        <source-file src="src/android/aidl/com/android/vending/licensing/ILicenseResultListener.aidl" target-dir="app/src/main/aidl/com/android/vending/licensing/" />      
+        <source-file src="src/android/aidl/com/android/vending/licensing/ILicensingService.aidl" target-dir="app/src/main/aidl/com/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/AESObfuscator.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/APKExpansionPolicy.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/DeviceLimiter.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/LicenseChecker.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/LicenseCheckerCallback.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/LicenseValidator.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/NullDeviceLimiter.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/Obfuscator.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/Policy.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/PreferenceObfuscator.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/ResponseData.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/ServerManagedPolicy.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/StrictPolicy.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/ValidationException.java" target-dir="src/com/google/android/vending/licensing/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/util/Base64.java" target-dir="src/com/google/android/vending/licensing/util/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/util/Base64DecoderException.java" target-dir="src/com/google/android/vending/licensing/util/" />      
+        <source-file src="src/android/java/com/google/android/vending/licensing/util/URIQueryDecoder.java" target-dir="src/com/google/android/vending/licensing/util/" />      
+        <source-file src="src/android/java/io/nonostante/games/cordova/CordovaAndroidLicensing.java" target-dir="src/io/nonostante/games/cordova/" />      
+     </platform>          
+</plugin>

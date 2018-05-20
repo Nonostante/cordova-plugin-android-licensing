@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-android-licensing",
+  "version": "1.0.0",
+  "description": "Android cordova plugin for google play licensing check",
+  "types": "./typings/cordova-plugin-android-licensing.d.ts",
+  "cordova": {
+    "id": "cordova-plugin-android-licensing",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonostante/cordova-plugin-android-licensing"
+  },
+  "keywords": [
+    "cordova",
+    "phonegap",
+    "android",
+    "ecosystem:cordova",
+    "cordova-android",
+    "googleplay",
+    "LVL",
+    "license",
+    "licensing"
+  ],
+  "author": "Nonostante Games",
+  "license": "Apache 2.0"
+}
