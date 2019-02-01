@@ -1,6 +1,6 @@
 
 interface CordovaAndroidLicensing {
-    check(success?: () => void, fail?: (error: number) => void): void
+    check(deviceId: string, success?: () => void, fail?: (error: number) => void): void
 }
 
 interface CordovaPlugins {

@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-android-licensing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Android cordova plugin for google play licensing check",
   "types": "./typings/cordova-plugin-android-licensing.d.ts",
   "cordova": {

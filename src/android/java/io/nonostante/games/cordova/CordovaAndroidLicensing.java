@@ -29,14 +29,14 @@ public class CordovaAndroidLicensing extends CordovaPlugin {
     @Override
     public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("check")) {
-            this.checkLicense(callbackContext);
+            this.checkLicense(args.getString(0), callbackContext);
             return true;
         }
 
         return false;
     }
 
-    private void checkLicense(final CallbackContext callbackContext) {
+    private void checkLicense(final String deviceId, final CallbackContext callbackContext) {
         final Context context = cordova.getContext();
         final Activity activity = cordova.getActivity();
 
@@ -45,8 +45,7 @@ public class CordovaAndroidLicensing extends CordovaPlugin {
         mChecker = new LicenseChecker(
                 context,
                 new ServerManagedPolicy(context,
-                        new AESObfuscator(SALT, context.getPackageName(),
-                                Secure.getString(activity.getContentResolver(), Secure.ANDROID_ID))),
+                        new AESObfuscator(SALT, context.getPackageName(), deviceId)),
                 context.getString(context.getResources().getIdentifier("lpk", "string", context.getPackageName()))
         );
 
