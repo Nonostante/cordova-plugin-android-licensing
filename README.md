@@ -16,13 +16,17 @@ The plugin is available on the `window.plugins.licensing` object.
 
 ## Check
 Allow to check asynchronically the licensing via the google play servers.
+
+The `deviceId` is a local id you generated for your user/device. Usually, you should generate it on first access and store it somewhere. If your app use user tracking/analytics tools you can pass the same one.
+
 ```js
-check(success: Function, fail: Function): void
+check(deviceId: string, success: Function, fail: Function): void
 ```
 
 ### Example
 ```js
 window.plugins.licensing.check(
+    deviceId, // your unique id for this current user/device
     function () { // success callback
 
     },
